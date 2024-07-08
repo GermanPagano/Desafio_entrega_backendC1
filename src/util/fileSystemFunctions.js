@@ -10,7 +10,6 @@ const verifyFileExist = (filePath) => {
 const read = (filePath) => {
     verifyFileExist(filePath);
     const data = fs.readFileSync(filePath, 'utf-8');
-    console.log('aca')
     return JSON.parse(data);
     
 }
