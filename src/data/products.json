@@ -1,58 +1,58 @@
 [
-  {
-    "id": 1,
-    "title": "Smartphone X",
-    "description": "A high-end smartphone with a 6.5-inch display, 128GB storage, and a powerful processor.",
-    "code": "SX1",
-    "price": 999,
-    "status": true,
-    "stock": 25,
-    "category": "Smartphones",
-    "thumbnails": [
-      "path/to/smartphone1.jpg",
-      "path/to/smartphone2.jpg"
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Laptop Pro",
-    "description": "A lightweight laptop with 16GB RAM, 512GB SSD, and a 13-inch Retina display.",
-    "code": "LP2",
-    "price": 1499,
-    "status": true,
-    "stock": 15,
-    "category": "Laptops",
-    "thumbnails": [
-      "path/to/laptop1.jpg",
-      "path/to/laptop2.jpg"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Wireless Headphones",
-    "description": "Noise-cancelling wireless headphones with 20-hour battery life and superior sound quality.",
-    "code": "WH3",
-    "price": 299,
-    "status": true,
-    "stock": 40,
-    "category": "Headphones",
-    "thumbnails": [
-      "path/to/headphones1.jpg",
-      "path/to/headphones2.jpg"
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Smartwatch Series 5",
-    "description": "A smartwatch with health tracking, GPS, and up to 18 hours of battery life.",
-    "code": "SW4",
-    "price": 399,
-    "status": true,
-    "stock": 30,
-    "category": "Wearables",
-    "thumbnails": [
-      "path/to/smartwatch1.jpg",
-      "path/to/smartwatch2.jpg"
-    ]
-  }
-]
+    {
+      "id": 1,
+      "title": "Smartphone X",
+      "description": "A high-end smartphone with a 6.5-inch display, 128GB storage, and a powerful processor.",
+      "code": "SX1",
+      "price": 999,
+      "status": true,
+      "stock": 25,
+      "category": "Smartphones",
+      "thumbnails": [
+        "path/to/smartphone1.jpg",
+        "path/to/smartphone2.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Laptop Pro",
+      "description": "A lightweight laptop with 16GB RAM, 512GB SSD, and a 13-inch Retina display.",
+      "code": "LP2",
+      "price": 1499,
+      "status": true,
+      "stock": 15,
+      "category": "Laptops",
+      "thumbnails": [
+        "path/to/laptop1.jpg",
+        "path/to/laptop2.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Wireless Headphones",
+      "description": "Noise-cancelling wireless headphones with 20-hour battery life and superior sound quality.",
+      "code": "WH3",
+      "price": 299,
+      "status": true,
+      "stock": 40,
+      "category": "Headphones",
+      "thumbnails": [
+        "path/to/headphones1.jpg",
+        "path/to/headphones2.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Smartwatch Series 5",
+      "description": "A smartwatch with health tracking, GPS, and up to 18 hours of battery life.",
+      "code": "SW4",
+      "price": 399,
+      "status": true,
+      "stock": 30,
+      "category": "Wearables",
+      "thumbnails": [
+        "path/to/smartwatch1.jpg",
+        "path/to/smartwatch2.jpg"
+      ]
+    }
+  ]

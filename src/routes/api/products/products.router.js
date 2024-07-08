@@ -3,17 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router()
 const PRODUCTS_FILE = path.resolve(__dirname, '../../../data/products.json');
-const { verifyFileExist , read , write  } = require('../../../util/fileSystemFunctions.js'); // Ruta correcta al archivo de funciones
-
-
-// funciones
-
-
-// escribir el json para añadir productos
-const writeProducts = (products) => {
-    verifyFileExist(PRODUCTS_FILE);
-    fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2));
-};
+const {  read , write  } = require('../../../util/fileSystemFunctions.js');
 
 
 // endpoints 
@@ -31,7 +21,6 @@ router.get('/:pid', (req, res) => {
     let search = products.find( e => e.id === selectProduct)
     res.json({search})
 })
-
 
 // POST
 router.post('/', (req, res) => {
@@ -86,7 +75,6 @@ router.put('/:pid', (req, res) => {
 
     res.json({ msg: 'Product updated', product: productUpdated });
 });
-
 
 // delete
 router.delete('/:pid', (req, res) => {
