@@ -28,5 +28,14 @@
         "quantity": 17
       }
     ]
+  },
+  {
+    "id": 3,
+    "products": [
+      {
+        "id": 1,
+        "quantity": 52
+      }
+    ]
   }
 ]
