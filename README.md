@@ -1,5 +1,25 @@
 ﻿# en este readme encontraras +CONSIGNA +CAPTURAS DE FUNCIONAMIENTO +INSTALACION
 
+ Clonar y Levantar la Aplicación
+Clonar el Repositorio
+bash
+Copiar código
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+Instalar Dependencias
+bash
+Copiar código
+npm install
+# o
+yarn install
+Iniciar la Aplicación
+bash
+Copiar código
+npm start
+# o
+yarn start
+La aplicación estará disponible en http://localhost:8080.
+
  ![image](https://github.com/GermanPagano/Desafio_entrega_backendC1/assets/80891761/ddf8510e-af1f-4f96-8469-a31829e73944)
 
 ![image](https://github.com/GermanPagano/Desafio_entrega_backendC1/assets/80891761/bc4fea65-7126-4acd-a474-33693e45401f)
