@@ -3,25 +3,15 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router()
 const PRODUCTS_FILE = path.resolve(__dirname, '../../../data/products.json');
+const { verifyFileExist , read , write  } = require('../../../util/fileSystemFunctions.js'); // Ruta correcta al archivo de funciones
+
 
 // funciones
-// Verificar si el archivo existe, si no, crearlo con un array vacío
-const verifyExist = () => {
-    if (!fs.existsSync(PRODUCTS_FILE)) {
-        fs.writeFileSync(PRODUCTS_FILE, JSON.stringify([], null, 2));
-    }
-};
 
-// leer los productos del json
-;const readProducts = () => {
-    verifyExist();
-    const data = fs.readFileSync(PRODUCTS_FILE, 'utf-8');
-    return JSON.parse(data);
-}
 
 // escribir el json para añadir productos
 const writeProducts = (products) => {
-    verifyExist();
+    verifyFileExist(PRODUCTS_FILE);
     fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2));
 };
 
@@ -30,13 +20,13 @@ const writeProducts = (products) => {
 
 // GET todos los productos
 router.get('/', (req, res) => {
-    const products = readProducts();
+    const products = read(PRODUCTS_FILE);
     res.json(products)
 })
 
 // GET mostrar por id
 router.get('/:pid', (req, res) => {
-    const products = readProducts();
+    const products = read(PRODUCTS_FILE);
     let selectProduct =  parseInt(req.params.pid)
     let search = products.find( e => e.id === selectProduct)
     res.json({search})
@@ -45,7 +35,7 @@ router.get('/:pid', (req, res) => {
 
 // POST
 router.post('/', (req, res) => {
-    const products = readProducts();
+    const products = read(PRODUCTS_FILE);
     const newProduct = {
         id: products.length + 1,
         title: req.body.title,
@@ -64,18 +54,20 @@ router.post('/', (req, res) => {
     }
 
     products.push(newProduct);
-    writeProducts(products);
+    write(PRODUCTS_FILE, products);
     res.status(201).json({ msg: 'Producto agregado correctamente', product: newProduct });
 });
 
 // put 
-router.put( '/:pid' , (req , res) => {
-    let products = readProducts();
-    let selectProduct =  parseInt(req.params.pid)
-    let search = products.find( e => e.id === selectProduct)
+router.put('/:pid', (req, res) => {
+    let products = read(PRODUCTS_FILE);
+    const selectProduct = parseInt(req.params.pid);
+    const search = products.find(e => e.id === selectProduct);
+
     if (!search) {
         return res.status(404).json({ error: 'Product not found' });
     }
+
     const productUpdated = {
         id: search.id,
         title: req.body.title || search.title,
@@ -90,30 +82,26 @@ router.put( '/:pid' , (req , res) => {
 
     // Reemplazar el producto en el array
     products = products.map(p => p.id === selectProduct ? productUpdated : p);
-    writeProducts(products);
+    write(PRODUCTS_FILE, products);
 
     res.json({ msg: 'Product updated', product: productUpdated });
+});
 
-})
 
-router.delete('/:pid', (req,res) => {
-    let products = readProducts();
-    const selectProduct =  parseInt(req.params.pid)
-    const searchProduct = products.find(p => p.id === selectProduct)
-    const newProducts = products.filter( e => e.id !== selectProduct)
+// delete
+router.delete('/:pid', (req, res) => {
+    let products = read(PRODUCTS_FILE);
+    const selectProduct = parseInt(req.params.pid);
+    const searchProduct = products.find(p => p.id === selectProduct);
+
     if (!searchProduct) {
         return res.status(404).json({ error: 'Product not found' });
     }
-    products = newProducts
-    writeProducts(products);
-    res.json({ msg: 'Product eliminado ', product: selectProduct });
 
-})
-
-
-
-
-
+    products = products.filter(e => e.id !== selectProduct);
+    write(PRODUCTS_FILE, products);
+    res.json({ msg: 'Product eliminado', product: selectProduct });
+});
 
 
 
