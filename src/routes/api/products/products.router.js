@@ -3,24 +3,25 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router()
 const PRODUCTS_FILE = path.resolve(__dirname, '../../../data/products.json');
+
+// funciones
 // Verificar si el archivo existe, si no, crearlo con un array vacío
-const prodcutsExists = () => {
+const verifyExist = () => {
     if (!fs.existsSync(PRODUCTS_FILE)) {
         fs.writeFileSync(PRODUCTS_FILE, JSON.stringify([], null, 2));
     }
 };
 
-// funciones
 // leer los productos del json
-const readProducts = () => {
-    prodcutsExists();
+;const readProducts = () => {
+    verifyExist();
     const data = fs.readFileSync(PRODUCTS_FILE, 'utf-8');
     return JSON.parse(data);
-};
+}
 
 // escribir el json para añadir productos
 const writeProducts = (products) => {
-    prodcutsExists();
+    verifyExist();
     fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2));
 };
 

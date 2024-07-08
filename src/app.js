@@ -11,7 +11,6 @@ app.use(express.json()); // enviar info desde url
 // Importamos las rutas 
 app.use("/products", productsRouter);
 app.use("/carts", cartRouter)
-
 app.listen(PORT, () => {
     console.log(`Server Running on PORT: ${PORT}`);
 });
