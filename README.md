@@ -1,11 +1,9 @@
 ﻿# en este readme encontraras +CONSIGNA +CAPTURAS DE FUNCIONAMIENTO +INSTALACION
-
- Clonar y Levantar la Aplicación
 Clonar el Repositorio
 bash
 Copiar código
-git clone [https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio](https://github.com/GermanPagano/Desafio_entrega_backendC1)
+git clone https://github.com/GermanPagano/Desafio_entrega_backendC1.git
+cd Desafio_entrega_backendC1
 Instalar Dependencias
 bash
 Copiar código
